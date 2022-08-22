@@ -14,7 +14,7 @@ NSArray<NSString *> *presentSystemVCs(void) {
         NSMutableArray *array = @[].mutableCopy;
         [array addObject:NSStringFromClass([UIImagePickerController class])];
         [array addObject:NSStringFromClass([UIDocumentPickerViewController class])];
-//        [array addObject:NSStringFromClass([UIPrinterPickerController class])];
+        [array addObject:NSStringFromClass([UIDocumentMenuViewController class])];
  
         if (@available(iOS 13.0, *)) {
             [array addObject:NSStringFromClass([UIFontPickerViewController class])];
@@ -24,7 +24,6 @@ NSArray<NSString *> *presentSystemVCs(void) {
             [array addObject:NSStringFromClass([UIColorPickerViewController class])];
         }
        
-        [array addObject:@"_UIDocumentPickerRemoteViewController"];
         list = [array copy];
     });
     return list;
@@ -45,7 +44,8 @@ static TYHWaterMarkView *g_waterMarkView = nil;
                               withOptions:AspectPositionBefore
                                usingBlock:^(id<AspectInfo> aspectInfo, UIViewController *vc, BOOL animated, id completion) {
                                 NSString *vcClassName = NSStringFromClass([vc class]);
-                                if ([presentSystemVCs() containsObject:vcClassName])
+//                                if ([presentSystemVCs() containsObject:vcClassName])
+                                if([vcClassName hasPrefix:@"UI"])
                                  {
                                      if (g_waterMarkView)
                                      {
