@@ -1,0 +1,18 @@
+//
+//  SanyWaterMaskVC.h
+//  SanyLocalPodDemo
+//
+//  Created by yuhua Tang on 2022/8/5.
+//
+
+#import <UIKit/UIKit.h>
+
+NS_ASSUME_NONNULL_BEGIN
+
+@interface TYHWaterMarkView : UIView
++ (void)setCharacter:(NSString *)str;
++ (void)setTimeFormat:(NSString *)format;
++ (void)updateDate;
+@end
+
+NS_ASSUME_NONNULL_END

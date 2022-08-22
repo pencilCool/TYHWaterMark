@@ -1,0 +1,26 @@
+use_frameworks!
+
+def common_install
+  pod 'TYHWaterMark', :path => '../'
+  pod 'TYHTestUtils',:git=>'https://github.com/pencilCool/TYHTestUtils.git'
+end
+
+target 'TYHWaterMark_Tests' do
+  common_install
+end
+
+target 'StoryBoardDemo' do
+  common_install
+end
+
+target 'CodeWithNoScene' do
+  common_install
+end
+
+target 'StoryBoardWithNoScene' do
+  common_install
+end
+
+
+
+
