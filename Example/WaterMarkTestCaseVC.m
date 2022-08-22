@@ -30,9 +30,16 @@
         [weakSelf presentViewController:vc animated:YES completion:nil];
     }];
     
-    [self addCell:@"System VC" action:^{
+    [self addCell:@"System VC: ImagePicker" action:^{
         UIImagePickerController *picker = [[UIImagePickerController alloc] init];
         picker.modalPresentationStyle = UIModalPresentationFullScreen;
+        [weakSelf presentViewController:picker animated:YES completion:^{
+        }];
+    }];
+    
+    [self addCell:@"System VC: UIDocumentPicker" action:^{
+        UIDocumentPickerViewController *picker = [[UIDocumentPickerViewController alloc] initWithDocumentTypes:@[@"public.image"] inMode:UIDocumentPickerModeImport];
+        picker.modalPresentationStyle = UIModalPresentationFormSheet;
         [weakSelf presentViewController:picker animated:YES completion:^{
         }];
     }];

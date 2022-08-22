@@ -45,7 +45,8 @@ static TYHWaterMarkView *g_waterMarkView = nil;
     [UIViewController aspect_hookSelector:@selector(presentViewController:animated:completion:)
                               withOptions:AspectPositionBefore
                                usingBlock:^(id<AspectInfo> aspectInfo, UIViewController *vc, BOOL animated, id completion) {
-                                 if ([vc isKindOfClass:[UIImagePickerController class]])
+                                 if ([vc isKindOfClass:[UIImagePickerController class]] ||
+                                     [vc isKindOfClass:[UIDocumentPickerViewController class]])
                                  {
                                      if (g_waterMarkView)
                                      {
