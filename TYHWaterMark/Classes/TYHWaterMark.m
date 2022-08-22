@@ -31,6 +31,25 @@
 }
 @end
 
+NSArray<NSString *> *presentSystemVCs(void) {
+    static NSArray *list;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        NSMutableArray *array = @[].mutableCopy;
+        [array addObject:NSStringFromClass([UIImagePickerController class])];
+        [array addObject:NSStringFromClass([UIDocumentPickerViewController class])];
+        [array addObject:NSStringFromClass([UIPrinterPickerController class])];
+        if (@available(iOS 14.0, *)) {
+            [array addObject:NSStringFromClass([UIColorPickerViewController class])];
+        }
+        if (@available(iOS 13.0, *)) {
+            [array addObject:NSStringFromClass([UIFontPickerViewController class])];
+        }
+        list = [array copy];
+    });
+    return list;
+}
+
 static NSString *g_characteristicStr = @"";
 static NSString *g_formatStr = @"yyyy-MM-dd";
 static TYHWaterMarkView *g_waterMarkView = nil;
@@ -45,8 +64,8 @@ static TYHWaterMarkView *g_waterMarkView = nil;
     [UIViewController aspect_hookSelector:@selector(presentViewController:animated:completion:)
                               withOptions:AspectPositionBefore
                                usingBlock:^(id<AspectInfo> aspectInfo, UIViewController *vc, BOOL animated, id completion) {
-                                 if ([vc isKindOfClass:[UIImagePickerController class]] ||
-                                     [vc isKindOfClass:[UIDocumentPickerViewController class]])
+                                NSString *vcClassName = NSStringFromClass([vc class]);
+                                if ([presentSystemVCs() containsObject:vcClassName])
                                  {
                                      if (g_waterMarkView)
                                      {

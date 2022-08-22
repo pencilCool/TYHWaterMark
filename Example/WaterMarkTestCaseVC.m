@@ -44,6 +44,14 @@
         }];
     }];
     
+    [self addCell:@"System VC: UIFontPickerViewController" action:^{
+        UIFontPickerViewController *picker = [[UIFontPickerViewController alloc] init];
+        picker.modalPresentationStyle = UIModalPresentationFormSheet;
+        [weakSelf presentViewController:picker animated:YES completion:^{
+        }];
+    }];
+    
+    
     [self addCell:@"push black vc" action:^{
         UIViewController *vc = [UIViewController new];
         vc.view.backgroundColor = [UIColor blackColor];
