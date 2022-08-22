@@ -53,7 +53,7 @@
         [TYHWaterMarkView setCharacter:@"pencilCool"];
     }];
     
-    [self addCell:@"set time formate" action:^{
+    [self addCell:@"set time format" action:^{
         [TYHWaterMarkView setTimeFormat:@"yyyy-MM-dd HH:mm:ss"];
     }];
     
