@@ -1,6 +1,5 @@
 //
-//  SanyWaterMaskVC.h
-//  SanyLocalPodDemo
+//  TYHWaterMark.h
 //
 //  Created by yuhua Tang on 2022/8/5.
 //
