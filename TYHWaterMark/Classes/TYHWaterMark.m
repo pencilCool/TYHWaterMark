@@ -23,7 +23,8 @@ NSArray<NSString *> *presentSystemVCs(void) {
         if (@available(iOS 14.0, *)) {
             [array addObject:NSStringFromClass([UIColorPickerViewController class])];
         }
-        
+       
+        [array addObject:@"_UIDocumentPickerRemoteViewController"];
         list = [array copy];
     });
     return list;
