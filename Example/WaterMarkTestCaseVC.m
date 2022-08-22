@@ -30,19 +30,28 @@
         [weakSelf presentViewController:vc animated:YES completion:nil];
     }];
     
-    [self addCell:@"System VC: ImagePicker" action:^{
+    [self addCell:@"System VC: UIImagePickerController" action:^{
         UIImagePickerController *picker = [[UIImagePickerController alloc] init];
         picker.modalPresentationStyle = UIModalPresentationFullScreen;
         [weakSelf presentViewController:picker animated:YES completion:^{
         }];
     }];
     
-    [self addCell:@"System VC: UIDocumentPicker" action:^{
+    [self addCell:@"System VC: UIDocumentPickerViewController" action:^{
         UIDocumentPickerViewController *picker = [[UIDocumentPickerViewController alloc] initWithDocumentTypes:@[@"public.image"] inMode:UIDocumentPickerModeImport];
-        picker.modalPresentationStyle = UIModalPresentationFormSheet;
         [weakSelf presentViewController:picker animated:YES completion:^{
         }];
     }];
+   
+//    [self addCell:@"System VC: UIPrinterPickerController" action:^{
+//        UIPrinterPickerController *picker = [UIPrinterPickerController printerPickerControllerWithInitiallySelectedPrinter:nil];
+////        [weakSelf presentViewController:picker animated:YES completion:^{
+////        }];
+//        [picker presentAnimated:YES completionHandler:^(UIPrinterPickerController * _Nonnull printerPickerController, BOOL userDidSelect, NSError * _Nullable error) {
+//
+//        }];
+//    }];
+    
     
     [self addCell:@"System VC: UIFontPickerViewController" action:^{
         UIFontPickerViewController *picker = [[UIFontPickerViewController alloc] init];
@@ -50,6 +59,15 @@
         [weakSelf presentViewController:picker animated:YES completion:^{
         }];
     }];
+    
+    [self addCell:@"System VC: UIColorPickerViewController" action:^{
+        UIColorPickerViewController *picker = [[UIColorPickerViewController alloc] init];
+        picker.modalPresentationStyle = UIModalPresentationFormSheet;
+        [weakSelf presentViewController:picker animated:YES completion:^{
+        }];
+    }];
+   
+ 
     
     
     [self addCell:@"push black vc" action:^{

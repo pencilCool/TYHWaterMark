@@ -8,29 +8,6 @@
 #import "TYHWaterMark.h"
 @import Aspects;
 
-@implementation UIViewController (tyh_waterMark)
-+ (UIViewController *)tyh_topViewController:(UIViewController *)root
-{
-    if (root.presentedViewController != nil)
-    {
-        return [self tyh_topViewController:root.presentedViewController];
-    }
-
-    if ([root isKindOfClass:[UITabBarController class]])
-    {
-        UITabBarController *tab = (UITabBarController *)root;
-        return [self tyh_topViewController:tab.selectedViewController];
-    }
-
-    if ([root isKindOfClass:[UINavigationController class]])
-    {
-        UINavigationController *nav = (UINavigationController *)root;
-        return [self tyh_topViewController:nav.topViewController];
-    }
-    return root;
-}
-@end
-
 NSArray<NSString *> *presentSystemVCs(void) {
     static NSArray *list;
     static dispatch_once_t onceToken;
@@ -38,13 +15,16 @@ NSArray<NSString *> *presentSystemVCs(void) {
         NSMutableArray *array = @[].mutableCopy;
         [array addObject:NSStringFromClass([UIImagePickerController class])];
         [array addObject:NSStringFromClass([UIDocumentPickerViewController class])];
-        [array addObject:NSStringFromClass([UIPrinterPickerController class])];
-        if (@available(iOS 14.0, *)) {
-            [array addObject:NSStringFromClass([UIColorPickerViewController class])];
-        }
+//        [array addObject:NSStringFromClass([UIPrinterPickerController class])];
+ 
         if (@available(iOS 13.0, *)) {
             [array addObject:NSStringFromClass([UIFontPickerViewController class])];
         }
+        
+        if (@available(iOS 14.0, *)) {
+            [array addObject:NSStringFromClass([UIColorPickerViewController class])];
+        }
+        
         list = [array copy];
     });
     return list;
