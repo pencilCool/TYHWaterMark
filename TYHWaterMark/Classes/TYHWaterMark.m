@@ -58,16 +58,10 @@ static TYHWaterMarkView *g_waterMarkView = nil;
     [UIViewController aspect_hookSelector:@selector(dismissViewControllerAnimated:completion:)
                               withOptions:AspectPositionAfter
                                usingBlock:^(id<AspectInfo> aspectInfo, BOOL animated, id completion) {
-                                 UIViewController *vc = aspectInfo.instance;
-                                 UIViewController *topVC = [UIViewController tyh_topViewController:vc];
-                                 // FIXME: this hard code class may vary with iOS system version, if you find bug please let me know
-                                 if ([topVC isKindOfClass:NSClassFromString(@"PUPhotoPickerHostViewController")])
-                                 {
-                                     if (g_waterMarkView)
-                                     {
-                                         g_waterMarkView.hidden = NO;
-                                     }
-                                 }
+                                    if (g_waterMarkView)
+                                    {
+                                        g_waterMarkView.hidden = NO;
+                                    }
                                }
                                     error:nil];
 }
