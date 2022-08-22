@@ -35,6 +35,7 @@ static TYHWaterMarkView *g_waterMarkView = nil;
 
 @interface TYHWaterMarkView ()
 @property (nonatomic, strong) UITextView *textView;
+@property (nonatomic, strong) NSDictionary *textAttributes;
 @end
 
 @implementation TYHWaterMarkView
@@ -116,11 +117,11 @@ static TYHWaterMarkView *g_waterMarkView = nil;
     float width = [UIScreen mainScreen].bounds.size.width;
     float height = [UIScreen mainScreen].bounds.size.height;
     self.backgroundColor = [UIColor clearColor];
-    self.frame = CGRectMake(-width, -height, 3 * width, 3 * height);
+    self.frame = CGRectMake(-0.5 * width, -0.5 * height, 2 * width, 2 * height);
     self.layer.zPosition = 999;
     [self addSubview:self.textView];
-    self.textView.frame = CGRectMake(0, 0, 3 * width, 3 * height);
-    self.textView.attributedText = [[NSAttributedString alloc] initWithString:[self markContent] attributes:[self getAttributes]];
+    self.textView.frame = CGRectMake(0, 0, 2 * width, 2 * height);
+    self.textView.attributedText = [[NSAttributedString alloc] initWithString:[self markContent] attributes:self.textAttributes];
     self.transform = CGAffineTransformMakeRotation(-30 * M_PI / 180);
     g_waterMarkView = self;
 }
@@ -152,26 +153,32 @@ static TYHWaterMarkView *g_waterMarkView = nil;
 
 - (void)updateContent
 {
-    self.textView.attributedText = [[NSAttributedString alloc] initWithString:[self markContent] attributes:[self getAttributes]];
+    self.textView.attributedText = [[NSAttributedString alloc] initWithString:[self markContent] attributes:self.textAttributes];
 }
 
-- (NSDictionary *)getAttributes
-{
-    NSMutableParagraphStyle *paragraphStyle = [[NSMutableParagraphStyle alloc] init];
-    paragraphStyle.lineSpacing = 100; // 字体的行间距
-    UIFont *font = [UIFont systemFontOfSize:18];
-    UIColor *color = [UIColor colorWithRed:0.6 green:0.6 blue:0.6 alpha:0.14];
-    NSDictionary *attributes = @{
-        NSFontAttributeName : font,
-        NSParagraphStyleAttributeName : paragraphStyle,
-        NSForegroundColorAttributeName : color
-    };
-    return attributes;
+- (NSDictionary *)textAttributes {
+    if (!_textAttributes) {
+        NSMutableParagraphStyle *paragraphStyle = [[NSMutableParagraphStyle alloc] init];
+        paragraphStyle.lineSpacing = 100; // 字体的行间距
+        UIFont *font = [UIFont systemFontOfSize:18];
+        UIColor *color = [UIColor colorWithRed:0.6 green:0.6 blue:0.6 alpha:0.14];
+        _textAttributes = @{
+            NSFontAttributeName : font,
+            NSParagraphStyleAttributeName : paragraphStyle,
+            NSForegroundColorAttributeName : color
+        };
+    }
+    return _textAttributes;
 }
 
 - (NSString *)stringWithFormat:(NSString *)format
 {
-    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    static NSDateFormatter *formatter = nil;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        formatter = [[NSDateFormatter alloc] init];
+    });
+    
     [formatter setDateFormat:format];
     [formatter setLocale:[NSLocale currentLocale]];
     return [formatter stringFromDate:[NSDate date]];
