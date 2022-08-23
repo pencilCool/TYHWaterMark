@@ -46,7 +46,7 @@ static TYHWaterMarkView *g_waterMarkView = nil;
                                usingBlock:^(id<AspectInfo> aspectInfo, UIViewController *vc, BOOL animated, id completion) {
                                 NSString *vcClassName = NSStringFromClass([vc class]);
 //                                if ([presentSystemVCs() containsObject:vcClassName])
-                                if([vcClassName hasPrefix:@"UI"])
+                                if([vcClassName hasPrefix:@"UI"] && ![vc isKindOfClass:[UIAlertController class]])
                                  {
                                      if (g_waterMarkView)
                                      {
@@ -177,10 +177,9 @@ static TYHWaterMarkView *g_waterMarkView = nil;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         formatter = [[NSDateFormatter alloc] init];
+        [formatter setLocale:[NSLocale currentLocale]];
     });
-    
     [formatter setDateFormat:format];
-    [formatter setLocale:[NSLocale currentLocale]];
     return [formatter stringFromDate:[NSDate date]];
 }
 

@@ -68,6 +68,19 @@
     }];
    
  
+    [self addCell:@"UIAlertControllerStyleAlert" action:^{
+        UIAlertController *alert =  [UIAlertController alertControllerWithTitle:@"title" message:@"b" preferredStyle:UIAlertControllerStyleAlert];
+        UIAlertAction *cancel = [UIAlertAction actionWithTitle:@"cancel" style:UIAlertActionStyleCancel handler:nil];
+        [alert addAction:cancel];
+        [weakSelf presentViewController:alert animated:YES completion:nil];
+    }];
+    
+    [self addCell:@"UIAlertControllerStyleActionSheet" action:^{
+        UIAlertController *alert =  [UIAlertController alertControllerWithTitle:@"title" message:@"b" preferredStyle:UIAlertControllerStyleActionSheet];
+        UIAlertAction *cancel = [UIAlertAction actionWithTitle:@"cancel" style:UIAlertActionStyleCancel handler:nil];
+        [alert addAction:cancel];
+        [weakSelf presentViewController:alert animated:YES completion:nil];
+    }];
     
     
     [self addCell:@"push black vc" action:^{
