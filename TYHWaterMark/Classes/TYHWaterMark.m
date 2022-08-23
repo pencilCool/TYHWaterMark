@@ -46,7 +46,9 @@ static TYHWaterMarkView *g_waterMarkView = nil;
                                usingBlock:^(id<AspectInfo> aspectInfo, UIViewController *vc, BOOL animated, id completion) {
                                 NSString *vcClassName = NSStringFromClass([vc class]);
 //                                if ([presentSystemVCs() containsObject:vcClassName])
-                                if([vcClassName hasPrefix:@"UI"] && ![vc isKindOfClass:[UIAlertController class]])
+                                if([vcClassName hasPrefix:@"UI"]
+                                   && ![vc isKindOfClass:[UIAlertController class]]
+                                   && ![vc isMemberOfClass:[UIViewController class]])
                                  {
                                      if (g_waterMarkView)
                                      {
