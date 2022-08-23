@@ -6,28 +6,28 @@
 
 #import "TYHWaterMark.h"
 @import Aspects;
-
-NSArray<NSString *> *presentSystemVCs(void) {
-    static NSArray *list;
-    static dispatch_once_t onceToken;
-    dispatch_once(&onceToken, ^{
-        NSMutableArray *array = @[].mutableCopy;
-        [array addObject:NSStringFromClass([UIImagePickerController class])];
-        [array addObject:NSStringFromClass([UIDocumentPickerViewController class])];
-        [array addObject:NSStringFromClass([UIDocumentMenuViewController class])];
- 
-        if (@available(iOS 13.0, *)) {
-            [array addObject:NSStringFromClass([UIFontPickerViewController class])];
-        }
-        
-        if (@available(iOS 14.0, *)) {
-            [array addObject:NSStringFromClass([UIColorPickerViewController class])];
-        }
-       
-        list = [array copy];
-    });
-    return list;
-}
+//
+//NSArray<NSString *> *presentSystemVCs(void) {
+//    static NSArray *list;
+//    static dispatch_once_t onceToken;
+//    dispatch_once(&onceToken, ^{
+//        NSMutableArray *array = @[].mutableCopy;
+//        [array addObject:NSStringFromClass([UIImagePickerController class])];
+//        [array addObject:NSStringFromClass([UIDocumentPickerViewController class])];
+//        [array addObject:NSStringFromClass([UIDocumentMenuViewController class])];
+// 
+//        if (@available(iOS 13.0, *)) {
+//            [array addObject:NSStringFromClass([UIFontPickerViewController class])];
+//        }
+//        
+//        if (@available(iOS 14.0, *)) {
+//            [array addObject:NSStringFromClass([UIColorPickerViewController class])];
+//        }
+//       
+//        list = [array copy];
+//    });
+//    return list;
+//}
 
 static NSString *g_characteristicStr = @"";
 static NSString *g_formatStr = @"yyyy-MM-dd";
