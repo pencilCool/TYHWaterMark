@@ -5,13 +5,22 @@
 [![License](https://img.shields.io/cocoapods/l/TYHWaterMark.svg?style=flat)](https://cocoapods.org/pods/TYHWaterMark)
 [![Platform](https://img.shields.io/cocoapods/p/TYHWaterMark.svg?style=flat)](https://cocoapods.org/pods/TYHWaterMark)
 
-## Example
+A water mark framework from iOS app
 
-To run the example project, clone the repo, and run `pod install` from the Example directory first.
+## Features
+
+- add water mark for all iOS app pages
+- not block the usage of system Pages: UIImagePickerViewController and other UIxxxViewController
+
+## Usage
+
+you can learn more in example project, clone the repo, and run `pod install` from the Example directory first.
 
 ![image](./img/screen.png)
 
 ## Requirements
+
+iOS 10.0+
 
 ## Installation
 
@@ -22,10 +31,11 @@ it, simply add the following line to your Podfile:
 pod 'TYHWaterMark'
 ```
 
-## Author
-
-pencilCool, yhtangcoder@gmail.com
-
 ## License
 
 TYHWaterMark is available under the MIT license. See the LICENSE file for more info.
+
+# 中文
+
+一个给 iOS app 添加 app 内全局水印的 framework
+不会阻塞相册等系统组件的使用

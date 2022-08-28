@@ -15,15 +15,15 @@
 //        [array addObject:NSStringFromClass([UIImagePickerController class])];
 //        [array addObject:NSStringFromClass([UIDocumentPickerViewController class])];
 //        [array addObject:NSStringFromClass([UIDocumentMenuViewController class])];
-// 
+//
 //        if (@available(iOS 13.0, *)) {
 //            [array addObject:NSStringFromClass([UIFontPickerViewController class])];
 //        }
-//        
+//
 //        if (@available(iOS 14.0, *)) {
 //            [array addObject:NSStringFromClass([UIColorPickerViewController class])];
 //        }
-//       
+//
 //        list = [array copy];
 //    });
 //    return list;
