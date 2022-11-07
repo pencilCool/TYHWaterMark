@@ -6,7 +6,16 @@
 //  Copyright © 2022 pencilCool. All rights reserved.
 //
 
+
 #import "WaterMarkTestCaseVC.h"
+
+
+@interface SubImagePickerVC:UIImagePickerController
+@end
+
+@implementation SubImagePickerVC
+@end
+
 @import TYHWaterMark;
 @interface WaterMarkTestCaseVC ()
 @property (nonatomic,weak) NSTimer *timer;
@@ -32,6 +41,13 @@
     
     [self addCell:@"System VC: UIImagePickerController" action:^{
         UIImagePickerController *picker = [[UIImagePickerController alloc] init];
+        picker.modalPresentationStyle = UIModalPresentationFullScreen;
+        [weakSelf presentViewController:picker animated:YES completion:^{
+        }];
+    }];
+    
+    [self addCell:@"sub System VC: UIImagePickerController" action:^{
+        SubImagePickerVC *picker = [[SubImagePickerVC alloc] init];
         picker.modalPresentationStyle = UIModalPresentationFullScreen;
         [weakSelf presentViewController:picker animated:YES completion:^{
         }];

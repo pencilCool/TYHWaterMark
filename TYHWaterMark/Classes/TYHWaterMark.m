@@ -6,28 +6,34 @@
 
 #import "TYHWaterMark.h"
 @import Aspects;
-//
-//NSArray<NSString *> *presentSystemVCs(void) {
-//    static NSArray *list;
-//    static dispatch_once_t onceToken;
-//    dispatch_once(&onceToken, ^{
-//        NSMutableArray *array = @[].mutableCopy;
-//        [array addObject:NSStringFromClass([UIImagePickerController class])];
-//        [array addObject:NSStringFromClass([UIDocumentPickerViewController class])];
-//        [array addObject:NSStringFromClass([UIDocumentMenuViewController class])];
-//
-//        if (@available(iOS 13.0, *)) {
-//            [array addObject:NSStringFromClass([UIFontPickerViewController class])];
-//        }
-//
-//        if (@available(iOS 14.0, *)) {
-//            [array addObject:NSStringFromClass([UIColorPickerViewController class])];
-//        }
-//
-//        list = [array copy];
-//    });
-//    return list;
-//}
+
+BOOL isPresentAbleSystemVC(UIViewController *vc) {
+    static NSArray *list = nil;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        NSMutableArray *array = @[].mutableCopy;
+        [array addObject:[UIImagePickerController class]];
+        [array addObject:[UIDocumentPickerViewController class]];
+        [array addObject:[UIDocumentMenuViewController class]];
+
+        if (@available(iOS 13.0, *)) {
+            [array addObject:[UIFontPickerViewController class]];
+        }
+
+        if (@available(iOS 14.0, *)) {
+            [array addObject:[UIColorPickerViewController class]];
+        }
+
+        list = [array copy];
+    });
+    
+    for(Class aClass in list) {
+        if([vc isKindOfClass:aClass]) {
+            return YES;
+        }
+    }
+    return NO;
+}
 
 static NSString *g_characteristicStr = @"";
 static NSString *g_formatStr = @"yyyy-MM-dd";
@@ -45,10 +51,10 @@ static TYHWaterMarkView *g_waterMarkView = nil;
                               withOptions:AspectPositionBefore
                                usingBlock:^(id<AspectInfo> aspectInfo, UIViewController *vc, BOOL animated, id completion) {
                                 NSString *vcClassName = NSStringFromClass([vc class]);
-//                                if ([presentSystemVCs() containsObject:vcClassName])
-                                if([vcClassName hasPrefix:@"UI"]
-                                   && ![vc isKindOfClass:[UIAlertController class]]
-                                   && ![vc isMemberOfClass:[UIViewController class]])
+                                if(isPresentAbleSystemVC(vc) ||
+                                   ([vcClassName hasPrefix:@"UI"]
+                                    && ![vc isKindOfClass:[UIAlertController class]]
+                                    && ![vc isMemberOfClass:[UIViewController class]]))
                                  {
                                      if (g_waterMarkView)
                                      {
