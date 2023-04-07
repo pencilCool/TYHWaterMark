@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'TYHWaterMark'
-  s.version          = '0.1.1'
+  s.version          = '0.1.2'
   s.summary          = 'A short description of TYHWaterMark.'
 
 # This description is used to generate tags and improve search results.
@@ -27,8 +27,8 @@ TODO: Add long description of the pod here.
   s.author           = { 'pencilCool' => 'yhtangcoder@gmail.com' }
   s.source           = { :git => 'https://github.com/pencilCool/TYHWaterMark.git', :tag => s.version.to_s }
   # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
-
-  s.ios.deployment_target = '10.0'
+  s.requires_arc = true
+  s.ios.deployment_target = '11.0'
 
   s.source_files = 'TYHWaterMark/Classes/**/*'
   
@@ -37,6 +37,16 @@ TODO: Add long description of the pod here.
   # }
 
   # s.public_header_files = 'Pod/Classes/**/*.h'
-  # s.frameworks = 'UIKit', 'MapKit'
-  s.dependency 'Aspects'
+  
+  script1 = <<-CMD
+     podsPath=$(pwd)
+     echo $podsPath
+     echo "pencilCool hello"
+   CMD
+   
+   s.script_phase = [
+    { :name => 'pod compile before1', :script => script1, :shell_path =>'/bin/sh', :execution_position => :before_compile},
+    ]
+   
+  s.frameworks = 'UIKit', 'WebKit'
 end

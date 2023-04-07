@@ -8,6 +8,41 @@
 
 
 #import "WaterMarkTestCaseVC.h"
+@import WebKit;
+@interface WebViewVC : UIViewController
+
+@end
+
+
+
+@interface WebViewVC ()<WKNavigationDelegate>
+@property (nonatomic,strong) WKWebView *webView;
+@end
+
+@implementation WebViewVC
+
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    self.webView = [[WKWebView alloc] init];
+    self.webView.navigationDelegate = self;
+    self.webView.allowsBackForwardNavigationGestures = true;
+    [self.view addSubview:self.webView];
+}
+
+- (void)viewWillLayoutSubviews {
+    [super viewWillLayoutSubviews];
+    self.webView.frame = self.view.bounds;
+}
+
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    NSString *path = [[NSBundle mainBundle] pathForResource:@"input" ofType:@"html"];
+    NSData*data = [NSData dataWithContentsOfFile:path];
+    NSString *html  = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+    [self.webView loadHTMLString:html baseURL:nil];
+}
+
+@end
 
 
 @interface SubImagePickerVC:UIImagePickerController
@@ -96,6 +131,11 @@
         UIAlertAction *cancel = [UIAlertAction actionWithTitle:@"cancel" style:UIAlertActionStyleCancel handler:nil];
         [alert addAction:cancel];
         [weakSelf presentViewController:alert animated:YES completion:nil];
+    }];
+    
+    [self addCell:@"webview input " action:^{
+        WebViewVC *vc = [WebViewVC new];
+        [weakSelf.navigationController pushViewController:vc animated:true];
     }];
     
     

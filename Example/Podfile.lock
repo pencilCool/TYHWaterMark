@@ -1,16 +1,10 @@
 PODS:
-  - Aspects (1.4.1)
   - TYHTestUtils (0.1.0)
-  - TYHWaterMark (0.1.0):
-    - Aspects
+  - TYHWaterMark (0.1.2)
 
 DEPENDENCIES:
   - TYHTestUtils (from `https://github.com/pencilCool/TYHTestUtils.git`)
   - TYHWaterMark (from `../`)
-
-SPEC REPOS:
-  trunk:
-    - Aspects
 
 EXTERNAL SOURCES:
   TYHTestUtils:
@@ -24,10 +18,9 @@ CHECKOUT OPTIONS:
     :git: https://github.com/pencilCool/TYHTestUtils.git
 
 SPEC CHECKSUMS:
-  Aspects: 7595ba96a6727a58ebcbfc954497fc5d2fdde546
   TYHTestUtils: 91d7f5dbe500de12f8a5751fa998e6827ac0f480
-  TYHWaterMark: f0d03142138b906c63ed6326ba8aaaa6dc062bd3
+  TYHWaterMark: 08d7720654cfb95ff33daf37702b262903439c53
 
-PODFILE CHECKSUM: 97a89b2269e10634584064bb9147536b57674aa0
+PODFILE CHECKSUM: b2027358a2155ca4c84885db3a25be92dcf40010
 
 COCOAPODS: 1.11.2

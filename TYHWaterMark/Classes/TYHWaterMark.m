@@ -5,7 +5,8 @@
 //
 
 #import "TYHWaterMark.h"
-@import Aspects;
+@import PhotosUI;
+@import ObjectiveC;
 
 BOOL isPresentAbleSystemVC(UIViewController *vc) {
     static NSArray *list = nil;
@@ -15,15 +16,16 @@ BOOL isPresentAbleSystemVC(UIViewController *vc) {
         [array addObject:[UIImagePickerController class]];
         [array addObject:[UIDocumentPickerViewController class]];
         [array addObject:[UIDocumentMenuViewController class]];
-
+        
         if (@available(iOS 13.0, *)) {
             [array addObject:[UIFontPickerViewController class]];
         }
-
+        
         if (@available(iOS 14.0, *)) {
             [array addObject:[UIColorPickerViewController class]];
+            [array addObject:[PHPickerViewController class]];
         }
-
+        
         list = [array copy];
     });
     
@@ -39,41 +41,68 @@ static NSString *g_characteristicStr = @"";
 static NSString *g_formatStr = @"yyyy-MM-dd";
 static TYHWaterMarkView *g_waterMarkView = nil;
 
+
+@interface UIViewController(TYHWaterMarkView)
+@end
+
+@implementation UIViewController(TYHWaterMarkView)
+
++ (void)load {
+    [UIViewController tyhwatermark_swizzleInstanceMethod:@selector(presentViewController:animated:completion:) with:@selector(tyhwatermark_presentViewController:animated:completion:)];
+    [UIViewController tyhwatermark_swizzleInstanceMethod:@selector(dismissViewControllerAnimated:completion:) with:@selector(tyhwatermark_dismissViewControllerAnimated:completion:)];
+}
+
++ (BOOL)tyhwatermark_swizzleInstanceMethod:(SEL)originalSel with:(SEL)newSel {
+    Method originalMethod = class_getInstanceMethod(self, originalSel);
+    Method newMethod = class_getInstanceMethod(self, newSel);
+    if (!originalMethod || !newMethod) return NO;
+    
+    class_addMethod(self,
+                    originalSel,
+                    class_getMethodImplementation(self, originalSel),
+                    method_getTypeEncoding(originalMethod));
+    class_addMethod(self,
+                    newSel,
+                    class_getMethodImplementation(self, newSel),
+                    method_getTypeEncoding(newMethod));
+    
+    method_exchangeImplementations(class_getInstanceMethod(self, originalSel),
+                                   class_getInstanceMethod(self, newSel));
+    return YES;
+}
+
+- (void)tyhwatermark_presentViewController:(UIViewController *)viewControllerToPresent animated: (BOOL)flag completion:(void (^ __nullable)(void))completion  {
+    NSString *vcClassName = NSStringFromClass([viewControllerToPresent class]);
+    if(isPresentAbleSystemVC(viewControllerToPresent) ||
+       (([vcClassName hasPrefix:@"UI"]
+         && ![viewControllerToPresent isKindOfClass:[UIAlertController class]]
+         && ![viewControllerToPresent isMemberOfClass:[UIViewController class]])))
+    {
+        if (g_waterMarkView)
+        {
+            g_waterMarkView.hidden = YES;
+        }
+    }
+    [self tyhwatermark_presentViewController:viewControllerToPresent animated:flag completion:completion];
+}
+
+- (void)tyhwatermark_dismissViewControllerAnimated: (BOOL)flag completion: (void (^ __nullable)(void))completion {
+    if (g_waterMarkView)
+    {
+        g_waterMarkView.hidden = NO;
+    }
+    [self tyhwatermark_dismissViewControllerAnimated:flag completion:completion];
+}
+
+@end
+
+
 @interface TYHWaterMarkView ()
 @property (nonatomic, strong) UITextView *textView;
 @property (nonatomic, strong) NSDictionary *textAttributes;
 @end
 
 @implementation TYHWaterMarkView
-+ (void)initialize
-{
-    [UIViewController aspect_hookSelector:@selector(presentViewController:animated:completion:)
-                              withOptions:AspectPositionBefore
-                               usingBlock:^(id<AspectInfo> aspectInfo, UIViewController *vc, BOOL animated, id completion) {
-                                NSString *vcClassName = NSStringFromClass([vc class]);
-                                if(isPresentAbleSystemVC(vc) ||
-                                   ([vcClassName hasPrefix:@"UI"]
-                                    && ![vc isKindOfClass:[UIAlertController class]]
-                                    && ![vc isMemberOfClass:[UIViewController class]]))
-                                 {
-                                     if (g_waterMarkView)
-                                     {
-                                         g_waterMarkView.hidden = YES;
-                                     }
-                                 }
-                               }
-                                    error:nil];
-
-    [UIViewController aspect_hookSelector:@selector(dismissViewControllerAnimated:completion:)
-                              withOptions:AspectPositionAfter
-                               usingBlock:^(id<AspectInfo> aspectInfo, BOOL animated, id completion) {
-                                    if (g_waterMarkView)
-                                    {
-                                        g_waterMarkView.hidden = NO;
-                                    }
-                               }
-                                    error:nil];
-}
 
 + (void)setCharacter:(NSString *)str
 {

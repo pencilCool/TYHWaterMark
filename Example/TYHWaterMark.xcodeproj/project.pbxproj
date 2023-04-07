@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 46;
+	objectVersion = 55;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -38,6 +38,9 @@
 		C4EED2DC28B078B200BAE404 /* WaterMarkTestCaseVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C4EED2DA28B078B200BAE404 /* WaterMarkTestCaseVC.m */; };
 		C4EED2DD28B078B200BAE404 /* WaterMarkTestCaseVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C4EED2DA28B078B200BAE404 /* WaterMarkTestCaseVC.m */; };
 		C4EED2DE28B078B200BAE404 /* WaterMarkTestCaseVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C4EED2DA28B078B200BAE404 /* WaterMarkTestCaseVC.m */; };
+		C4FF336A29DFFC2D00C8A6AD /* input.html in Resources */ = {isa = PBXBuildFile; fileRef = C4FF336929DFFC2D00C8A6AD /* input.html */; };
+		C4FF336B29DFFC2D00C8A6AD /* input.html in Resources */ = {isa = PBXBuildFile; fileRef = C4FF336929DFFC2D00C8A6AD /* input.html */; };
+		C4FF336C29DFFC2D00C8A6AD /* input.html in Resources */ = {isa = PBXBuildFile; fileRef = C4FF336929DFFC2D00C8A6AD /* input.html */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -95,6 +98,7 @@
 		C4EED2D428B06F2700BAE404 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		C4EED2D928B078B200BAE404 /* WaterMarkTestCaseVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WaterMarkTestCaseVC.h; sourceTree = "<group>"; };
 		C4EED2DA28B078B200BAE404 /* WaterMarkTestCaseVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WaterMarkTestCaseVC.m; sourceTree = "<group>"; };
+		C4FF336929DFFC2D00C8A6AD /* input.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = input.html; sourceTree = "<group>"; };
 		E4BC2A56AA5C40A81560ED6F /* Pods_StoryBoardDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_StoryBoardDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E4CEF8130EDB97F47368B479 /* Pods_TYHWaterMark_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TYHWaterMark_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F49273E881A33F1F33257751 /* Pods_CodeWithNoScene.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CodeWithNoScene.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -144,6 +148,7 @@
 			children = (
 				C4EED2D928B078B200BAE404 /* WaterMarkTestCaseVC.h */,
 				C4EED2DA28B078B200BAE404 /* WaterMarkTestCaseVC.m */,
+				C4FF336929DFFC2D00C8A6AD /* input.html */,
 				60FF7A9C1954A5C5007DD14C /* Podspec Metadata */,
 				6003F5B5195388D20070C39A /* Tests */,
 				C45FD12D28AF5347004CB927 /* StoryBoardDemo */,
@@ -384,7 +389,7 @@
 				};
 			};
 			buildConfigurationList = 6003F585195388D10070C39A /* Build configuration list for PBXProject "TYHWaterMark" */;
-			compatibilityVersion = "Xcode 3.2";
+			compatibilityVersion = "Xcode 13.0";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -419,6 +424,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C45FD13E28AF5349004CB927 /* LaunchScreen.storyboard in Resources */,
+				C4FF336A29DFFC2D00C8A6AD /* input.html in Resources */,
 				C45FD13B28AF5349004CB927 /* Assets.xcassets in Resources */,
 				C45FD13928AF5347004CB927 /* Main.storyboard in Resources */,
 			);
@@ -429,6 +435,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C45FD15B28AF54D7004CB927 /* LaunchScreen.storyboard in Resources */,
+				C4FF336B29DFFC2D00C8A6AD /* input.html in Resources */,
 				C45FD15828AF54D7004CB927 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -438,6 +445,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C4EED2D228B06F2700BAE404 /* LaunchScreen.storyboard in Resources */,
+				C4FF336C29DFFC2D00C8A6AD /* input.html in Resources */,
 				C4EED2CF28B06F2700BAE404 /* Assets.xcassets in Resources */,
 				C4EED2CD28B06F2500BAE404 /* Main.storyboard in Resources */,
 			);
@@ -451,17 +459,12 @@
 			buildActionMask = 2147483647;
 			files = (
 			);
-			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-TYHWaterMark_Tests/Pods-TYHWaterMark_Tests-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/Aspects-iOS10.0/Aspects.framework",
-				"${BUILT_PRODUCTS_DIR}/TYHTestUtils-iOS10.0/TYHTestUtils.framework",
-				"${BUILT_PRODUCTS_DIR}/TYHWaterMark-iOS10.0/TYHWaterMark.framework",
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-TYHWaterMark_Tests/Pods-TYHWaterMark_Tests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
 			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Aspects.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TYHTestUtils.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TYHWaterMark.framework",
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-TYHWaterMark_Tests/Pods-TYHWaterMark_Tests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -495,17 +498,12 @@
 			buildActionMask = 2147483647;
 			files = (
 			);
-			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-CodeWithNoScene/Pods-CodeWithNoScene-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/Aspects-iOS15.0/Aspects.framework",
-				"${BUILT_PRODUCTS_DIR}/TYHTestUtils-iOS15.0/TYHTestUtils.framework",
-				"${BUILT_PRODUCTS_DIR}/TYHWaterMark-iOS15.0/TYHWaterMark.framework",
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-CodeWithNoScene/Pods-CodeWithNoScene-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
 			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Aspects.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TYHTestUtils.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TYHWaterMark.framework",
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-CodeWithNoScene/Pods-CodeWithNoScene-frameworks-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -561,17 +559,12 @@
 			buildActionMask = 2147483647;
 			files = (
 			);
-			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-StoryBoardWithNoScene/Pods-StoryBoardWithNoScene-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/Aspects-iOS15.5/Aspects.framework",
-				"${BUILT_PRODUCTS_DIR}/TYHTestUtils-iOS15.5/TYHTestUtils.framework",
-				"${BUILT_PRODUCTS_DIR}/TYHWaterMark-iOS15.5/TYHWaterMark.framework",
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-StoryBoardWithNoScene/Pods-StoryBoardWithNoScene-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
 			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Aspects.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TYHTestUtils.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TYHWaterMark.framework",
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-StoryBoardWithNoScene/Pods-StoryBoardWithNoScene-frameworks-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -605,17 +598,12 @@
 			buildActionMask = 2147483647;
 			files = (
 			);
-			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-StoryBoardDemo/Pods-StoryBoardDemo-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/Aspects-iOS15.0/Aspects.framework",
-				"${BUILT_PRODUCTS_DIR}/TYHTestUtils-iOS15.0/TYHTestUtils.framework",
-				"${BUILT_PRODUCTS_DIR}/TYHWaterMark-iOS15.0/TYHWaterMark.framework",
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-StoryBoardDemo/Pods-StoryBoardDemo-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
 			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Aspects.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TYHTestUtils.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TYHWaterMark.framework",
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-StoryBoardDemo/Pods-StoryBoardDemo-frameworks-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -811,6 +799,7 @@
 					"$(inherited)",
 				);
 				INFOPLIST_FILE = "Tests/Tests-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.demo.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -831,6 +820,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Tests/Tests-Prefix.pch";
 				INFOPLIST_FILE = "Tests/Tests-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.demo.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -877,8 +867,11 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				MARKETING_VERSION = 1.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
@@ -928,8 +921,11 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				MARKETING_VERSION = 1.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
@@ -977,8 +973,11 @@
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				MARKETING_VERSION = 1.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
@@ -1027,8 +1026,11 @@
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				MARKETING_VERSION = 1.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
@@ -1077,8 +1079,11 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				MARKETING_VERSION = 1.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
@@ -1128,8 +1133,11 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				MARKETING_VERSION = 1.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
