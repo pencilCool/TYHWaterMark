@@ -5,8 +5,8 @@
 //
 
 #import "TYHWaterMark.h"
-@import PhotosUI;
 @import ObjectiveC;
+@import PhotosUI;
 
 BOOL isPresentAbleSystemVC(UIViewController *vc) {
     static NSArray *list = nil;
@@ -39,6 +39,8 @@ BOOL isPresentAbleSystemVC(UIViewController *vc) {
 
 static NSString *g_characteristicStr = @"";
 static NSString *g_formatStr = @"yyyy-MM-dd";
+static UIFont   *g_font= nil;
+static UIColor  *g_color = nil;
 static TYHWaterMarkView *g_waterMarkView = nil;
 
 
@@ -128,6 +130,18 @@ static TYHWaterMarkView *g_waterMarkView = nil;
     }
 }
 
++ (void)setFont:(UIFont *)font {
+    g_font = font;
+    g_waterMarkView.textAttributes = nil;
+    [g_waterMarkView updateContent];
+}
+
++ (void)setColor:(UIColor *)color {
+    g_color = color;
+    g_waterMarkView.textAttributes = nil;
+    [g_waterMarkView updateContent];
+}
+
 + (void)updateDate
 {
     if (g_waterMarkView)
@@ -197,8 +211,8 @@ static TYHWaterMarkView *g_waterMarkView = nil;
     if (!_textAttributes) {
         NSMutableParagraphStyle *paragraphStyle = [[NSMutableParagraphStyle alloc] init];
         paragraphStyle.lineSpacing = 100; // 字体的行间距
-        UIFont *font = [UIFont systemFontOfSize:18];
-        UIColor *color = [UIColor colorWithRed:0.6 green:0.6 blue:0.6 alpha:0.14];
+        UIFont *font = g_font ?:[UIFont systemFontOfSize:18];
+        UIColor *color = g_color ?:[UIColor colorWithRed:0.6 green:0.6 blue:0.6 alpha:0.14];
         _textAttributes = @{
             NSFontAttributeName : font,
             NSParagraphStyleAttributeName : paragraphStyle,

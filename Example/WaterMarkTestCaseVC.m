@@ -159,6 +159,22 @@
         [TYHWaterMarkView setTimeFormat:@"yyyy-MM-dd HH:mm:ss"];
     }];
     
+    [self addCell:@"set color to green" action:^{
+        [TYHWaterMarkView setColor:[UIColor systemGreenColor]];
+    }];
+    
+    [self addCell:@"set color to blue" action:^{
+        [TYHWaterMarkView setColor:[UIColor systemBlueColor]];
+    }];
+    
+    [self addCell:@"set font size to 30" action:^{
+        [TYHWaterMarkView setFont:[UIFont systemFontOfSize:30]];
+    }];
+    
+    [self addCell:@"set font size to 12" action:^{
+        [TYHWaterMarkView setFont:[UIFont systemFontOfSize:12]];
+    }];
+    
     [self addCell:@"update date " action:^{
         [TYHWaterMarkView setTimeFormat:@"yyyy-MM-dd HH:mm:ss"];
         [TYHWaterMarkView updateDate];

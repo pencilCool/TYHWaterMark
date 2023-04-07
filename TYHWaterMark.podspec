@@ -8,45 +8,18 @@
 
 Pod::Spec.new do |s|
   s.name             = 'TYHWaterMark'
-  s.version          = '0.1.2'
+  s.version          = '0.1.3'
   s.summary          = 'A short description of TYHWaterMark.'
 
-# This description is used to generate tags and improve search results.
-#   * Think: What does it do? Why did you write it? What is the focus?
-#   * Try to keep it short, snappy and to the point.
-#   * Write the description between the DESC delimiters below.
-#   * Finally, don't worry about the indent, CocoaPods strips it!
-
   s.description      = <<-DESC
-TODO: Add long description of the pod here.
+    Add water mark for iOS app without blocking system presented vc (UIImagePickerViewController)
                        DESC
 
   s.homepage         = 'https://github.com/pencilCool/TYHWaterMark'
-  # s.screenshots     = 'www.example.com/screenshots_1', 'www.example.com/screenshots_2'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
   s.author           = { 'pencilCool' => 'yhtangcoder@gmail.com' }
   s.source           = { :git => 'https://github.com/pencilCool/TYHWaterMark.git', :tag => s.version.to_s }
-  # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
-  s.requires_arc = true
   s.ios.deployment_target = '11.0'
-
   s.source_files = 'TYHWaterMark/Classes/**/*'
-  
-  # s.resource_bundles = {
-  #   'TYHWaterMark' => ['TYHWaterMark/Assets/*.png']
-  # }
-
-  # s.public_header_files = 'Pod/Classes/**/*.h'
-  
-  script1 = <<-CMD
-     podsPath=$(pwd)
-     echo $podsPath
-     echo "pencilCool hello"
-   CMD
-   
-   s.script_phase = [
-    { :name => 'pod compile before1', :script => script1, :shell_path =>'/bin/sh', :execution_position => :before_compile},
-    ]
-   
-  s.frameworks = 'UIKit', 'WebKit'
+  s.frameworks = 'UIKit'
 end

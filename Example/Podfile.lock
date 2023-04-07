@@ -1,6 +1,6 @@
 PODS:
   - TYHTestUtils (0.1.0)
-  - TYHWaterMark (0.1.2)
+  - TYHWaterMark (0.1.3)
 
 DEPENDENCIES:
   - TYHTestUtils (from `https://github.com/pencilCool/TYHTestUtils.git`)
@@ -19,7 +19,7 @@ CHECKOUT OPTIONS:
 
 SPEC CHECKSUMS:
   TYHTestUtils: 91d7f5dbe500de12f8a5751fa998e6827ac0f480
-  TYHWaterMark: 08d7720654cfb95ff33daf37702b262903439c53
+  TYHWaterMark: 596c66704524e77b60e32399c43445d655c53085
 
 PODFILE CHECKSUM: b2027358a2155ca4c84885db3a25be92dcf40010
 
