@@ -20,7 +20,7 @@ you can learn more in example project, clone the repo, and run `pod install` fro
 
 ## Requirements
 
-iOS 10.0+
+iOS 11.0+
 
 ## Installation
 
